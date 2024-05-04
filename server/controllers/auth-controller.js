@@ -4,7 +4,7 @@ const cloudinary = require("../utils/cloudinary");
 const register = async (req, res) => {
   try {
     const { name, email, gender, profilePicture, uid } = req.body;
-    let result = profilePicture;
+    let result;
     if (profilePicture) {
       try {
         result = await cloudinary.uploader.upload(profilePicture, {
@@ -24,7 +24,7 @@ const register = async (req, res) => {
       name,
       email,
       gender,
-      profilePicture: result.secure_url || profilePicture,
+      profilePicture: result?.secure_url || "",
       uid,
     });
     console.log(user);
