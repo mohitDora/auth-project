@@ -26,14 +26,13 @@ import {
 export function Signup({ user }) {
   const auth = getAuth(app);
   const [isLoading, setIsLoading] = useState(false);
-  // const [isLoadingGoogle, setIsLoadingGoogle] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
     gender: null,
-    profilePicture: "https://github.com/shadcn.png", // Add profilePicture field to formData
+    profilePicture: "https://github.com/shadcn.png", 
   });
 
   const handleChange = (e) => {
