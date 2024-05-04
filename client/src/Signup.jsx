@@ -13,15 +13,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import app from "./firebase";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+// import {
+//   Select,
+//   SelectContent,
+//   SelectGroup,
+//   SelectItem,
+//   SelectLabel,
+//   SelectTrigger,
+//   SelectValue,
+// } from "@/components/ui/select";
 
 export function Signup({ user }) {
   const auth = getAuth(app);
@@ -43,6 +43,23 @@ export function Signup({ user }) {
       // Handle file inputs
       const file = e.target.files[0];
       if (file) {
+        // Check the file size in MB
+        const fileSizeInMB = file.size / (1024 * 1024); // Convert bytes to MB
+  
+        // Set the maximum file size limit (in MB)
+        const maxFileSizeInMB = 5; // Change this value to your desired limit
+  
+        // Check if the file size exceeds the limit
+        if (fileSizeInMB > maxFileSizeInMB) {
+          alert(`File size exceeds the limit of ${maxFileSizeInMB} MB`);
+          e.target.value = null; // Clear the input field
+          setFormData({ ...formData, [e.target.name]: null }); // Clear the file state
+          return;
+        }
+  
+      }
+      if (file) {
+        
         const reader = new FileReader();
         reader.onload = () => {
           setFormData({ ...formData, [e.target.name]: reader.result });
@@ -146,7 +163,7 @@ export function Signup({ user }) {
                 />
               </div>
             </div>
-            <Select
+            {/* <Select
               value={formData.gender}
               onChange={handleChange}
               name="gender"
@@ -164,7 +181,7 @@ export function Signup({ user }) {
                   </SelectItem>
                 </SelectGroup>
               </SelectContent>
-            </Select>
+            </Select> */}
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
               <Input

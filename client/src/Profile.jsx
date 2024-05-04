@@ -12,7 +12,7 @@ function Profile({ user }) {
   const handleSubmit = async () => {
     try {
       const response = await fetch(
-        `https://auth-project-topaz.vercel.app/api/user/${userData?.uid}`
+        `https://auth-project-topaz.vercel.app/api/user/${user?.uid}`
       );
       if (response.ok) {
         const res_data = await response.json();

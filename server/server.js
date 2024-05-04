@@ -6,7 +6,8 @@ const cors=require("cors");
 const bodyParser = require('body-parser');
 
 const app=express();
-
+// "https://auth-project-topaz.vercel.app" || 
+// https://auth-project-6yea.vercel.app
 const PORT="https://auth-project-topaz.vercel.app" || 5000;
 const corsOptions={
     origin:"https://auth-project-6yea.vercel.app",
