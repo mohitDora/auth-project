@@ -58,7 +58,7 @@ export function Signup({ user }) {
   console.log(formData);
   const storeToDatabse = async (id) => {
     try {
-      const response = await fetch("http://localhost:5000/api/register", {
+      const response = await fetch("https://auth-project-topaz.vercel.app/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

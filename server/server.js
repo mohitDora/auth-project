@@ -7,9 +7,9 @@ const bodyParser = require('body-parser');
 
 const app=express();
 
-const PORT=5000;
+const PORT=process.env.BACKPORT;
 const corsOptions={
-    origin:"http://localhost:5173",
+    origin:process.env.FRONTURL,
     methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
     credentials:true
 }
