@@ -7,9 +7,9 @@ const bodyParser = require('body-parser');
 
 const app=express();
 
-const PORT=process.env.BACKPORT;
+const PORT="https://auth-project-topaz.vercel.app" || 5000;
 const corsOptions={
-    origin:process.env.FRONTURL,
+    origin:"https://auth-project-6yea.vercel.app",
     methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
     credentials:true
 }
